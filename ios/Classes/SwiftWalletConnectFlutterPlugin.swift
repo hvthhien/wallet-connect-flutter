@@ -8,7 +8,7 @@ public class SwiftWalletConnectFlutterPlugin: NSObject,FlutterStreamHandler,Flut
     
     
     var interactor: WCInteractor?
-    let clientMeta = WCPeerMeta(name: "MYKEY", url: "https://mykey.org",description:"MYKEY Lab" ,icons: ["https://cdn.mykey.tech/mykey-website/static/img/favicon-32.ico"])
+    let clientMeta = WCPeerMeta(name: "S.page", url: "https://s.page",description:"S.page" ,icons: ["https://s.page/assets/images/icon_256.jpg"])
     
     var eventSink: FlutterEventSink?
     
@@ -42,6 +42,8 @@ public class SwiftWalletConnectFlutterPlugin: NSObject,FlutterStreamHandler,Flut
             let args: NSDictionary = call.arguments as! NSDictionary
             let uri : String = args["uri"] as! String
             connect(result: result,string:   uri  )
+        case "resume":
+            resume(result: result)
         case "approveSession":
             let args: NSDictionary = call.arguments as! NSDictionary
             let accounts : [String] = args["addresses"] as!  [String]
@@ -127,6 +129,14 @@ public class SwiftWalletConnectFlutterPlugin: NSObject,FlutterStreamHandler,Flut
         }
     }
     
+    func resume(result: @escaping  FlutterResult) {
+        guard interactor != nil else {
+            self.resultMsg(result: result, error: WalletConnectPluginError.none , data: nil, message: "")
+            return
+        }
+        interactor?.resume()
+        self.resultMsg(result: result, error: WalletConnectPluginError.none , data: nil, message: "")
+    }
     
     func connectTo(result:@escaping  FlutterResult,session: WCSession) {
         print("==> session", session)

@@ -85,6 +85,11 @@ class WalletConnectFlutter {
     return WalletConnectResponse.fromJson(res);
   }
 
+  Future<WalletConnectResponse> resume() async {
+    Map res = await _channel.invokeMethod('resume', {});
+    return WalletConnectResponse.fromJson(res);
+  }
+
   Future<WalletConnectResponse> approveSession(
       List<String> addresses, int chainID) async {
     this.uri = uri;
