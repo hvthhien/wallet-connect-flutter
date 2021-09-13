@@ -16,7 +16,7 @@ A new flutter plugin project.
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
   s.platform = :ios, '11.0'
-  s.dependency 'CryptoSwift' , '~> 1.1.3'
+  s.dependency 'CryptoSwift' , '~> 1.4.0'
   s.dependency 'Starscream' , '~> 3.1.1'
   s.dependency 'PromiseKit' , '~> 6.11.0'
   s.dependency 'TrustWalletCore'
