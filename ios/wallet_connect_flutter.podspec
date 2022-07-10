@@ -19,7 +19,7 @@ A new flutter plugin project.
   s.dependency 'CryptoSwift' , '~> 1.4.0'
   s.dependency 'Starscream' , '~> 3.1.1'
   s.dependency 'PromiseKit' , '~> 6.11.0'
-  s.dependency 'TrustWalletCore'
+  s.dependency 'TrustWalletCore' , '~> 2.7.0'
   
   # Flutter.framework does not contain a i386 slice. Only x86_64 simulators are supported.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64' }
